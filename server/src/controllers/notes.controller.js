@@ -1,52 +1,49 @@
-const Notes=require('../models/notes.models');
+const Note = require('../models/notes.models');
 
-// Creating a new note
-async function createNote(req,res){
-    try{
-        const {text}=req.body;
-        const newNote=new Notes({
+async function createNote(req, res) {
+    try {
+        const { text } = req.body;
+        const newNote = new Note({
             text,
-            user:req.usertoken,
+            user: req.usertoken,
         });
+
         await newNote.save();
-        res.status(201).json({message:'Note created successfully',newNote});
-    }catch(error){
-        res.status(500).json({message:'Error creating note.',error});
+        res.status(201).json(newNote);
+    } catch (error) {
+        res.status(500).json({ message: 'Internal Server Error' });
     }
 }
 
-// Getting single note
-async function getNote(req,res){
-    try{
-        const note=await Notes.findById(req.params.id);
-        if(!note){
-            return res.status(404).json({message:'Note not found.'});
+async function getNote(req, res) {
+    try {
+        const note = await Note.findById(req.params.id);
+        if (!note) {
+            return res.status(404).json({ message: 'Note not found' });
+        } else {
+            res.status(200).json(note);
         }
-        res.json(note);
-    }catch(error){
-        res.status(500).json({message:'Error getting note.',error});
+    } catch (error) {
+        res.status(500).json({ message: 'Internal Server Error' });
     }
 }
 
-// Getting all notes
-async function getAllNotes(req,res){
-    
+async function getAllNotes(req, res) {
+    //Get All Notes
 }
 
-// Updating a note
-async function updateNote(req,res){
-    
+async function updateNote(req, res) {
+    //Update Note
 }
 
-// Deleting a note
-async function deleteNote(req,res){
-    
+async function deleteNote(req, res) {
+    //Delete Note
 }
 
-module.exports={
+module.exports = {
     createNote,
     getNote,
     getAllNotes,
     updateNote,
-    deleteNote,
-}
+    deleteNote
+};

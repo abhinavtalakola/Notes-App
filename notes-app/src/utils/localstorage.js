@@ -1,23 +1,21 @@
 function addToLocalStorage(key, value){
-    if(typeof value === "object"){
+    try {
         localStorage.setItem(key, JSON.stringify(value));
-    }else{
-        localStorage.setItem(key, value);
+    } catch (error) {
+        console.error("Error saving to localStorage", error);
     }
-}
+};
 
 function getFromLocalStorage(key){
-    let value=localStorage.getItem(key);
-    if(!value){
+    try {
+        const data = localStorage.getItem(key);
+        return data ? JSON.parse(data) : null;
+    } catch (error) {
+        console.error("Error reading from localStorage", error);
         return null;
     }
+};
 
-    try{
-        return JSON.parse(value);
-    }catch(error){
-        return value;
-    }
-}
 
 function updateLocalStorage(key, updatedValue){
     let value=localStorage.getItem(key);

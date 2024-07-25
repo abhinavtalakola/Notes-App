@@ -1,12 +1,12 @@
-.container{
+.container {
     display: flex;
     height: 100%;
     width: 100%;
     flex-direction: column;
 
-    main{
+    main {
         display: grid;
         gap: 30px;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(4, 1fr);
     }
 }

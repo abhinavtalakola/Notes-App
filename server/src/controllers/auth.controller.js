@@ -1,10 +1,9 @@
-const User=require('../models/users.models');
+const User = require('../models/users.models');
 
-// Logged In user details
-async function getMe(req,res){
-
+async function getMe(req, res) {
+    //Get logged user details
 }
 
-module.exports={
+module.exports = {
     getMe
-}
+};

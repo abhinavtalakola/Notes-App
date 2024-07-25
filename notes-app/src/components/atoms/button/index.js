@@ -6,8 +6,8 @@ function Button(props) {
     const { text, icon, handleClick, className, isDisabled } = props;
     return (
         <button className={`${styles.button} ${className}`} onClick={handleClick} disabled={isDisabled}>
-            <Icon icon={icon} />
-            <h3>{text}</h3>
+            {icon ? <Icon icon={icon} />:null}
+            {text?<h3>{text}</h3>:null}
         </button>
     );
 }

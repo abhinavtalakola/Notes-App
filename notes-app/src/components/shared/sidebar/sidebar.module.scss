@@ -1,4 +1,23 @@
 .sidebar{
+    position: fixed; /* Keep the sidebar fixed on the screen */
+    top: 0;
+    left: 0;
+    width: 60px; /* Set a fixed width */
+    height: 100vh; /* Full height of the viewport */
+    padding: 10px 7px;
+    background-color: var(--black);
+    display: grid;
+    grid-template-rows: 50px auto 50px;
+    align-items: flex-start;
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+    
+    /* Ensure that the content inside sidebar doesn’t overflow */
+    box-sizing: border-box;
+    
+    /* Optional: add a box shadow to distinguish sidebar */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    
+    /*
     display:grid;
     width: 60px;
     padding: 10px 7px;
@@ -7,6 +26,7 @@
     background-color: var(--black);
     align-items: flex-start;
     flex-direction: column;
+    */
 
     .logo{
         display: flex;
